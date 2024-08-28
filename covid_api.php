@@ -1,17 +1,17 @@
 <?php 
-    require __DIR__ . '/utils.php';
+    // require __DIR__ . '/utils.php';
 
     // Get basic information
     $error = "";
     $function = substr($_SERVER['REQUEST_URI'], 1); 
     $method = $_SERVER['REQUEST_METHOD'];
-    $data = getData();
+    $data = json_decode(file_get_contents("https://disease.sh/v3/covid-19/all"));
 
     // Detect errors
     if ($method != "GET") {
-        $error = "Method not allowed";
+        $error = ["error"=>"Method not allowed", "value"=>$method];
     }
-    else if (substr_count($function, "/") >= 1 or ($function!="all" and $function!="" and ! array_key_exists($function, $data))) {
+    else if (substr_count($function, "/") >= 1 or ($function!="all" and $function!="" and ! property_exists($data, $function))) {
         $error = ["error"=>"Invalid function", "value"=>$function];
     }
 
@@ -21,6 +21,10 @@
         echo json_encode($error);
     }
     else {
-        echo json_encode(getData());
+        if ($function != "all" and $function != "") {
+            $data = [$function=>$data->$function];
+        }
+        
+        echo json_encode($data);
     }
 ?>
