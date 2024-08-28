@@ -1,7 +1,7 @@
 <?php 
     // Get basic information
     $error = [];
-    $function = substr($_SERVER['REQUEST_URI'], 1); 
+    $request = substr($_SERVER['REQUEST_URI'], 1); 
     $method = $_SERVER['REQUEST_METHOD'];
 
     $data = @file_get_contents("https://disease.sh/v3/covid-19/all");
@@ -16,8 +16,8 @@
         if ($method != "GET") {
             $error = ["error"=>"Method not supported", "value"=>$method];
         }
-        else if ($function!="all" and $function!="" and ! property_exists($data, $function)) {
-            $error = ["error"=>"Invalid function", "value"=>$function];
+        else if ($request!="all" and $request!="" and ! property_exists($data, $request)) {
+            $error = ["error"=>"Invalid request", "value"=>$request];
         }
     }
 
@@ -29,8 +29,8 @@
         echo json_encode($error);
     }
     else {
-        if ($function != "all" and $function != "") {
-            $data = [$function=>$data->$function];
+        if ($request != "all" and $request != "") {
+            $data = [$request=>$data->$request];
         }
     
         echo json_encode($data);
