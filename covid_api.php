@@ -1,6 +1,4 @@
 <?php 
-    // require __DIR__ . '/utils.php';
-
     // Get basic information
     $error = [];
     $function = substr($_SERVER['REQUEST_URI'], 1); 
@@ -18,7 +16,7 @@
         if ($method != "GET") {
             $error = ["error"=>"Method not allowed", "value"=>$method];
         }
-        else if (substr_count($function, "/") >= 1 or ($function!="all" and $function!="" and ! property_exists($data, $function))) {
+        else if ($function!="all" and $function!="" and ! property_exists($data, $function)) {
             $error = ["error"=>"Invalid function", "value"=>$function];
         }
     }
