@@ -1,7 +1,7 @@
 # PHP_Rest_API_Sample
 Thank you for the opportunity to move forward in the selection process!
 
-In a real world situation I would have followed up with the person who made this request and clarified how the end product was going to be used.  I don't feel like the shape of the data being selected from [disease.sh/v3/covid-19/all](https://disease.sh/v3/covid-19/all) did not lend itself to a REST API, while the scope of all of [disease.sh](https://disease.sh) seemed too large to be reproducing here.  I decided that the most reasonable application of a REST API to this data was to allow the retrieval of all data by default, or specific data if indicated.  I chose not to use any REST frameworks for PHP, as I thought it would better demonstrate my coding style.
+In a real world situation, I would have followed up with the person who made this request and clarified how the end product was going to be used.  I don't feel like the shape of the data being selected from [disease.sh/v3/covid-19/all](https://disease.sh/v3/covid-19/all) lent itself to a REST API, while the scope of all of [disease.sh](https://disease.sh) seemed too large to be reproducing here.  I decided that the most reasonable application of a REST API to this data was to allow the retrieval of all data by default, or specific data if indicated.  I chose not to use any REST frameworks for PHP, as I thought it would better demonstrate my coding style.
 
 This was the first PHP that I've written.  It was an interesting excercise!
 
