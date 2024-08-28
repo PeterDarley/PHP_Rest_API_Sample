@@ -14,7 +14,7 @@
         $data = json_decode($data);
 
         if ($method != "GET") {
-            $error = ["error"=>"Method not allowed", "value"=>$method];
+            $error = ["error"=>"Method not supported", "value"=>$method];
         }
         else if ($function!="all" and $function!="" and ! property_exists($data, $function)) {
             $error = ["error"=>"Invalid function", "value"=>$function];
