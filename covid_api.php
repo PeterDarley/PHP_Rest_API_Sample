@@ -22,6 +22,8 @@
     }
 
     // Display information
+    header('Content-Type: application/json; charset=utf-8');
+    
     if ($error) {
         http_response_code(404);
         echo json_encode($error);
@@ -30,7 +32,7 @@
         if ($function != "all" and $function != "") {
             $data = [$function=>$data->$function];
         }
-        
+    
         echo json_encode($data);
     }
 ?>
