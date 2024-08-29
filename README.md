@@ -25,4 +25,4 @@ Run using:\
 `docker compose up`\
 End with ctrl-c
 
-While running the server can be reached on port 9000 of the machine where it is running, which is likely to be http://localhost:9000/
+While running, the server can be reached on port 9000 of the machine where it is running, which is likely to be http://localhost:9000/
